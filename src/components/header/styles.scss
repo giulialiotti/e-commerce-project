@@ -1,0 +1,27 @@
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+
+    h1 {
+        font-family: 'DM Serif Display', serif;
+        font-size: 36px;
+        color: #3D4246;
+        text-align: center;
+        width: 20%;
+    }
+
+    .flex-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 40%;
+
+        div i {
+            font-size: 18px;
+            color: #3D4246;
+            margin-left: 3rem;
+        }
+    }
+}
+
