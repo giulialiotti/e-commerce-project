@@ -1,9 +1,15 @@
 import { Item } from '../Item';
 
-export const ItemList = () => {
+export const ItemList = ({products}) => {
     return (
-        <div>
-            <Item />
-        </div>
+        <>
+            {products.map(product => {
+                return (
+                    <div>
+                        <Item title={product.title} price={product.price} image={product.image}/>
+                    </div>                     
+                )
+            })}
+        </>      
     )
 };

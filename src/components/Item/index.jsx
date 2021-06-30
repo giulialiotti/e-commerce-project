@@ -1,47 +1,17 @@
-import { useState, useEffect } from "react";
+import { ItemCount } from '../ItemCount';
 
-export const Item = () => {
-
-    const [ products, setProducts ] = useState([]);
-
-    async function fetchData() {
-        const response = await fetch("https://api.mercadolibre.com/sites/MLA/search?q=bazar");
-        const data = await response.json();
-
-        return data.results;
-    }   
-
-    useEffect(() => {
-        const getData = async () => {
-            let data = await fetchData();
-            let product = data.map( product => {
-                return {
-                    id: product.id,
-                    title: product.title,
-                    price: product.price,
-                    image: product.thumbnail
-                }
-            });
-            setProducts(product);
-        }
-       getData();
-    }, [])
-
-    if (products.length > 0) {
-        console.log(products);
-    }
-
+export const Item = ({title, price, image}) => {
     return (
         <div>
-            {products.map(product => {
-                return (
-                    <div>
-                        <p>{product.title}</p>
-                        <p>{product.price}</p>
-                        <img src={product.image} />
-                    </div>
-                )
-            })}
+            <div className="product-image-container">
+                <img src={image} alt={title} />
+            </div>
+            <div className="product-text">
+                <h2>{title}</h2>
+                <p>Descripción</p>
+                <p className="price">{price}</p>
+                <ItemCount stock="5"/>             
+            </div>
         </div>
     )
 };

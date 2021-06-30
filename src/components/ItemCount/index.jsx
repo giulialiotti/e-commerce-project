@@ -24,11 +24,14 @@ export const ItemCount = ({stock}) => {
     const input = getInputProps({ isReadOnly: true })
     
     return (
-        <HStack maxW="320px">
-            <Button {...dec}>-</Button>
-            <Input size="md" maxW={24} {...input} />
-            <Button {...inc}>+</Button>
-        </HStack>
+        <>
+            <p>Cantidad</p>
+            <HStack maxW="320px">
+                <Button {...dec}>-</Button>
+                <Input size="md" maxW={24} {...input} />
+                <Button {...inc}>+</Button>
+            </HStack>
+        </>
     )
 };
 
