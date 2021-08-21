@@ -5,9 +5,9 @@ export const ItemList = ({products}) => {
         <>
             {products.map(product => {
                 return (
-                    <div>
+                    <>
                         <Item title={product.title} price={product.price} image={product.image}/>
-                    </div>                     
+                    </>                     
                 )
             })}
         </>      

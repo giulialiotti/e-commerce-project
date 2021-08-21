@@ -1,17 +1,16 @@
-import { ItemCount } from '../ItemCount';
+import "./styles.scss";
 
-export const Item = ({title, price, image}) => {
-    return (
-        <div>
-            <div className="product-image-container">
-                <img src={image} alt={title} />
-            </div>
-            <div className="product-text">
-                <h2>{title}</h2>
-                <p>Descripción</p>
-                <p className="price">{price}</p>
-                <ItemCount stock="5"/>             
-            </div>
-        </div>
-    )
+export const Item = ({ title, price, image }) => {
+  return (
+    <div className="item-container">
+      <div className="product-image-container">
+        <img src={image} alt={title} />
+      </div>
+      <div className="product-text">
+        <h3>Category</h3>
+        <h2>{title}</h2>
+        <p className="price">${price}</p>
+      </div>
+    </div>
+  );
 };

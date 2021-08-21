@@ -1,17 +1,18 @@
-import React from 'react';
-import './App.css';
-import { Header } from './components/Header';
-import { ItemListContainer } from './components/ItemListContainer';
-import { ItemDetailContainer } from './components/ItemDetailContainer';
+import React from "react";
+import "./index.css";
+import { Header } from "./components/Header";
+import { HeroContainer } from "./components/HeroContainer";
+import { ItemListContainer } from "./components/ItemListContainer";
+//import { ItemDetailContainer } from './components/ItemDetailContainer';
 
 function App() {
   return (
     <div>
       <Header />
-      <ItemListContainer greeting="Hello World" />
-      <ItemDetailContainer/>
+      <HeroContainer />
+      <ItemListContainer />
+      {/* <ItemDetailContainer/> */}
     </div>
-
   );
 }
 

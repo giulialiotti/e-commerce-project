@@ -1,3 +1,5 @@
+import { HiOutlineUser, HiOutlineMenuAlt1 } from 'react-icons/hi';
+import { AiOutlineSearch } from 'react-icons/ai';
 import './styles.scss';
 import { NavBar } from '../NavBar/index';
 import { CartWidget } from '../CartWidget/index';
@@ -5,11 +7,12 @@ import { CartWidget } from '../CartWidget/index';
 export const Header = () => {
     return (
         <header>
+            <HiOutlineMenuAlt1 className="hamburger-menu"/>
             <NavBar />
-            <h1>ecolife</h1>
+            <h1>fresh</h1>
             <div className="flex-container">
-                <div><i className="fas fa-search"></i></div>
-                <div><i className="fas fa-user-circle"></i></div>
+                <AiOutlineSearch className="hide-mobile" />
+                <HiOutlineUser className="hide-mobile" />
                 <CartWidget />
             </div>
         </header>

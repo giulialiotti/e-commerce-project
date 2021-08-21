@@ -1,27 +1,60 @@
 header {
-    height: 80px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 4.5vw;
 
     h1 {
-        font-family: 'DM Serif Display', serif;
-        font-size: 36px;
-        color: #3D4246;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #212121;
         text-align: center;
-        width: 20%;
+    }
+
+    .hide-mobile {
+        display: none;
     }
 
     .flex-container {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        width: 40%;
+    }
 
-        div i {
-            font-size: 18px;
-            color: #3D4246;
-            margin-left: 3rem;
-        }
+    svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
+@media screen and (min-width: 768px) {
+    header {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        padding: .5vw 5vw;
+    
+        h1 {
+            font-size: 2rem;
+            width: 20%;
+        }
+
+        .hide-mobile {
+            display: block;
+            margin-left: 2rem;
+        }
+    
+        .hamburger-menu {
+            display: none;
+        }
+    
+        .flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 40%;
+        }
+    }
+}

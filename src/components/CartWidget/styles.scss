@@ -1,6 +1,11 @@
-div .fa-shopping-bag {
-    font-size: 18px;
-    color: #3D4246;
-    margin-left: 3rem; 
+.cart-container svg {
+    width: 20px;
+    height: 20px;
 }
 
+
+@media screen and (min-width: 768px) {
+    .cart-container svg {
+        margin-left: 2rem;
+    }
+}
