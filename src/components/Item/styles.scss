@@ -38,3 +38,38 @@
     }
   }
 }
+
+@media screen and (min-width: 768px) {
+  .item-container {
+    .product-image-container {
+      height: 250px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .item-container {
+    .product-image-container {
+      height: 280px;
+    }
+
+    .product-text {
+      h3 {
+        font-size: 1rem;
+        padding: 12px 0 7px;
+        color: var(--gray);
+      }
+
+      h2,
+      p {
+        font-size: 1rem;
+        color: var(--black);
+        padding-bottom: 8px;
+      }
+
+      h2 {
+        -webkit-line-clamp: 2;
+      }
+    }
+  }
+}
