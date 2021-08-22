@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { ItemDetail } from "../ItemDetail";
 
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
+
+  const { itemId } = useParams();
 
   async function fetchData() {
     const response = await fetch(
@@ -10,29 +13,18 @@ export const ItemDetailContainer = () => {
     );
     const data = await response.json();
 
-    return data.results[0];
+    return data.results;
   }
 
   useEffect(() => {
     fetchData().then((item) => {
-      let product = {
-        id: item.id,
-        title: item.title,
-        image: item.thumbnail,
-        price: item.price,
-      };
-      console.log(product);
-      setProduct(product);
+      setProduct(item.find((prod) => prod.id === itemId));
     });
-  }, []);
+  }, [itemId]);
+
+  const { title, price, image } = product;
 
   return (
-    <>
-      <ItemDetail
-        title={product.title}
-        price={product.price}
-        image={product.image}
-      />
-    </>
+    <>{product && <ItemDetail title={title} price={price} image={image} />}</>
   );
 };
