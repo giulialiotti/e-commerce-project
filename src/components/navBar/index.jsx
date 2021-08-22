@@ -1,16 +1,23 @@
+import { HiOutlineUser, HiOutlineMenuAlt1 } from "react-icons/hi";
+import { AiOutlineSearch } from "react-icons/ai";
 import "./styles.scss";
-import { Link } from "@chakra-ui/layout";
+import { NavLinks } from "../NavLinks/index";
+import { CartWidget } from "../CartWidget/index";
+import { Link } from "react-router-dom";
+
 export const NavBar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="#">Shop</Link>
-        </li>
-      </ul>
-    </nav>
+    <header>
+      <HiOutlineMenuAlt1 className="hamburger-menu" />
+      <NavLinks />
+      <h1>fresh</h1>
+      <div className="flex-container">
+        <AiOutlineSearch className="hide-mobile" />
+        <HiOutlineUser className="hide-mobile" />
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
+      </div>
+    </header>
   );
 };
