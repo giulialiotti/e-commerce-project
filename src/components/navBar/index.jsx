@@ -10,7 +10,9 @@ export const NavBar = () => {
     <header>
       <HiOutlineMenuAlt1 className="hamburger-menu" />
       <NavLinks />
-      <h1>fresh</h1>
+      <Link to="/">
+        <h1>fresh</h1>
+      </Link>
       <div className="flex-container">
         <AiOutlineSearch className="hide-mobile" />
         <HiOutlineUser className="hide-mobile" />

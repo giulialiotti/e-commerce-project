@@ -1,60 +1,59 @@
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4.5vw;
+
+  h1 {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #212121;
+    text-align: center;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .flex-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 4.5vw;
+    justify-content: flex-end;
+  }
 
-    h1 {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 1.8rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: #212121;
-        text-align: center;
-    }
-
-    .hide-mobile {
-        display: none;
-    }
-
-    .flex-container {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    svg {
-        width: 20px;
-        height: 20px;
-    }
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    header {
-        height: 80px;
-        display: flex;
-        align-items: center;
-        padding: .5vw 5vw;
-    
-        h1 {
-            font-size: 2rem;
-            width: 20%;
-        }
+  header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0.5vw 5vw;
 
-        .hide-mobile {
-            display: block;
-            margin-left: 2rem;
-        }
-    
-        .hamburger-menu {
-            display: none;
-        }
-    
-        .flex-container {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            width: 40%;
-        }
+    h1 {
+      font-size: 2rem;
     }
+
+    .hide-mobile {
+      display: block;
+      margin-left: 2rem;
+    }
+
+    .hamburger-menu {
+      display: none;
+    }
+
+    .flex-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 40%;
+    }
+  }
 }
