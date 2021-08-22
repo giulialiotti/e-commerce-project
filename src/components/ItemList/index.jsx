@@ -8,6 +8,7 @@ export const ItemList = ({ products }) => {
         return (
           <React.Fragment key={index}>
             <Item
+              id={product.id}
               title={product.title}
               price={product.price}
               image={product.image}
