@@ -1,4 +1,3 @@
-import { Link } from "@chakra-ui/react";
 import React from "react";
 import assets from "../../assets/assets";
 import "./styles.scss";
@@ -18,7 +17,7 @@ export const HeroContainer = () => {
           Summer sale stylish <strong>womens</strong>
         </h2>
         <div className="discover-more-text">
-          <Link>Discover more</Link>
+          <a href="#item-list-section">Discover more</a>
           <span></span>
         </div>
       </div>
