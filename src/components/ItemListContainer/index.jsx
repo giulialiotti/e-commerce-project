@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import "./styles.scss";
 import { ItemList } from "../ItemList";
+import { useParams } from "react-router-dom";
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
+  const { catId } = useParams();
+  console.log(catId);
 
   async function fetchData() {
     const response = await fetch(
-      "https://api.mercadolibre.com/sites/MLA/search?q=vestido"
+      "https://api.mercadolibre.com/sites/MLA/search?q=remera"
     );
     const data = await response.json();
 
@@ -23,19 +26,24 @@ export const ItemListContainer = () => {
           title: product.title,
           price: product.price,
           image: product.thumbnail,
+          category: product.category_id,
         };
       });
-      setProducts(product);
+
+      if (catId) {
+        const arrayFiltered = product.filter((item) => item.category === catId);
+        setProducts(arrayFiltered);
+      } else {
+        setProducts(product);
+      }
     };
     getData();
-  }, []);
+  }, [catId]);
 
-  if (products.length > 0) {
-    console.log(products);
-  }
+  console.log(products);
 
   return (
-    <section>
+    <section id="item-list-section">
       <h2 className="products-title">
         Our trendy <strong>products</strong>
       </h2>
