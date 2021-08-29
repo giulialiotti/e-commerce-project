@@ -11,6 +11,15 @@ export const NavLinks = () => {
         <li>
           <Link to="/shop">Shop</Link>
         </li>
+        <li>
+          <Link to="/category/MLA109096">Jackets</Link>
+        </li>
+        <li>
+          <Link to="/category/MLA109282">Pants</Link>
+        </li>
+        <li>
+          <Link to="/category/MLA109042">Shirts</Link>
+        </li>
       </ul>
     </nav>
   );

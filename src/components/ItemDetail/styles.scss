@@ -1,0 +1,60 @@
+.item-detail-section {
+  .product-image-container {
+    width: 100%;
+    height: 500px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .product-text {
+    padding: 1rem 2rem;
+
+    .item-title {
+      font-family: "DM Sans", sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      padding: 10px 0 5px;
+      color: var(--black);
+    }
+
+    .item-description {
+      font-family: "DM Sans", sans-serif;
+      font-size: 15px;
+      color: var(--black);
+      padding-bottom: 5px;
+    }
+
+    .item-price {
+      font-family: "DM Sans", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--black);
+      padding: 1rem 0;
+    }
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .item-detail-section {
+    display: flex;
+    padding: 3rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .item-detail-section {
+    justify-content: center;
+
+    .product-image-container {
+      width: 500px;
+      height: 600px;
+    }
+    .product-text {
+      width: 500px;
+    }
+  }
+}

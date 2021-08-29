@@ -9,7 +9,7 @@ export const ItemDetailContainer = () => {
 
   async function fetchData() {
     const response = await fetch(
-      "https://api.mercadolibre.com/sites/MLA/search?q=remera"
+      "https://api.mercadolibre.com/sites/MLA/search?q=koxis"
     );
     const data = await response.json();
 

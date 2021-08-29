@@ -16,12 +16,12 @@ export const ItemCount = ({ stock }) => {
 
   return (
     <>
-      <HStack maxW="320px">
-        <Button {...dec} size="md">
+      <HStack maxW="320px" pt={5} pb={5}>
+        <Button {...dec} size="sm" h="48px">
           -
         </Button>
-        <Input size="md" maxW={24} {...input} />
-        <Button {...inc} size="md">
+        <Input size="sm" maxW={16} {...input} h="48px" />
+        <Button {...inc} size="sm" h="48px">
           +
         </Button>
       </HStack>
