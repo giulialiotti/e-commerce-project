@@ -22,11 +22,11 @@ export const ItemDetailContainer = () => {
     });
   }, [itemId]);
 
-  const { title, price, thumbnail } = product;
+  const { title, price, thumbnail, available_quantity } = product;
 
   return (
     <>
-      {product && <ItemDetail title={title} price={price} image={thumbnail} />}
+      {product && <ItemDetail title={title} price={price} image={thumbnail} stock={available_quantity}/>}
     </>
   );
 };
