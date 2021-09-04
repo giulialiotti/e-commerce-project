@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const { catId } = useParams();
-  console.log(catId);
 
   async function fetchData() {
     const response = await fetch(
@@ -39,8 +38,6 @@ export const ItemListContainer = () => {
     };
     getData();
   }, [catId]);
-
-  console.log(products);
 
   return (
     <section id="item-list-section">
