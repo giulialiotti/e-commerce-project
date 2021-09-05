@@ -5,40 +5,46 @@ import { HeroContainer } from "./components/HeroContainer";
 import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
+import { CartContainer } from "./components/CartContainer";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <NavBar />
+      <CartProvider>
 
-        <Switch>
-          <Route exact path="/">
-            <HeroContainer />
-            <ItemListContainer />
-          </Route>
+        <BrowserRouter>
+          <NavBar />
 
-          <Route exact path="/shop">
-            <ItemListContainer />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <HeroContainer />
+              <ItemListContainer />
+            </Route>
 
-          <Route exact path="/category/:catId">
-            <ItemListContainer />
-          </Route>
+            <Route exact path="/shop">
+              <ItemListContainer />
+            </Route>
 
-          <Route exact path="/detail/:itemId">
-            <ItemDetailContainer />
-          </Route>
+            <Route exact path="/category/:catId">
+              <ItemListContainer />
+            </Route>
 
-          <Route exact path="/cart">
-            <h1>Cart</h1>
-          </Route>
+            <Route exact path="/detail/:itemId">
+              <ItemDetailContainer />
+            </Route>
 
-          <Route path="*">
-            <Redirect to="/" />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+            <Route exact path="/cart">
+              <CartContainer />
+            </Route>
+
+            <Route path="*">
+              <Redirect to="/" />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+
+      </CartProvider>
     </>
   );
 }

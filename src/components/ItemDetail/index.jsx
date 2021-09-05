@@ -1,10 +1,14 @@
 import { Button, Flex, useNumberInput } from "@chakra-ui/react";
-import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import { ItemCount } from "../ItemCount";
 import "./styles.scss";
 
-export const ItemDetail = ({ title, price, image, stock }) => {
+export const ItemDetail = ({ id, title, price, image, stock }) => {
   const [ quantity, setQuantity ] = useState(1);  
+
+  const { addToCart, isInCart } = useContext(CartContext);
 
   /* Item count functionality */
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
@@ -19,14 +23,17 @@ export const ItemDetail = ({ title, price, image, stock }) => {
   const dec = getDecrementButtonProps();
   const input = getInputProps({ isReadOnly: true });
 
-  /* Add items to cart function */
-  const addToCart = () => {
-    console.log({title, price, image, quantity})
+  /* Add items to cart */
+  const handleAddToCart = () => {
+    addToCart({
+      id, title, price, image, quantity
+    })
   };
 
   /* Set quantity of items to add to cart */
   useEffect(() => {
-    setQuantity(input.value);
+    let value = parseFloat(input.value);
+    setQuantity(value);
   }, [input]); 
 
   return (
@@ -45,16 +52,27 @@ export const ItemDetail = ({ title, price, image, stock }) => {
         <Flex align="center" justify="space-between">
           <ItemCount className="item-counter" inc={inc} dec={dec} input={input}/>
 
-          <Button
-            colorScheme="teal"
-            size="lg"
-            fontFamily={"DM Sans"}
-            textTransform="uppercase"
-            fontSize={["15px", "16px", "18px", "22px"]}
-            onClick={addToCart}
-          >
-            Add to cart
-          </Button>
+          {
+            isInCart(id) 
+              ? <Link 
+                  to="/cart"
+                  className="end-purchase-link"
+                >
+                  End purchase
+                </Link> 
+              : <Button
+                  bg="var(--cream)"
+                  color="white"
+                  size="lg"
+                  fontFamily={"DM Sans"}
+                  textTransform="uppercase"
+                  fontSize={["15px", "16px", "18px", "22px"]}
+                  onClick={handleAddToCart}
+                >
+                  Add to cart
+                </Button>           
+              }
+
         </Flex>
       </div>
     </section>
