@@ -9,9 +9,10 @@ export const ItemList = ({ products }) => {
           <React.Fragment key={index}>
             <Item
               id={product.id}
-              title={product.title}
+              title={product.name}
               price={product.price}
               image={product.image}
+              category={product.category}
             />
           </React.Fragment>
         );

@@ -2,41 +2,36 @@ import { useState, useEffect } from "react";
 import "./styles.scss";
 import { ItemList } from "../ItemList";
 import { useParams } from "react-router-dom";
+import { getFirestore } from '../../firebase/config';
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const { catId } = useParams();
 
-  async function fetchData() {
-    const response = await fetch(
-      "https://api.mercadolibre.com/sites/MLA/search?q=koxis"
-    );
-    const data = await response.json();
-
-    return data.results;
-  }
-
   useEffect(() => {
-    const getData = async () => {
-      let data = await fetchData();
-      let product = data.map((product) => {
-        return {
-          id: product.id,
-          title: product.title,
-          price: product.price,
-          image: product.thumbnail,
-          category: product.category_id,
-        };
-      });
 
-      if (catId) {
-        const arrayFiltered = product.filter((item) => item.category === catId);
-        setProducts(arrayFiltered);
-      } else {
-        setProducts(product);
-      }
-    };
-    getData();
+    // Firestore
+
+    const db = getFirestore();
+    const productsCollection = db.collection('products');
+
+    if (catId) {
+      const arrayFiltered = productsCollection.where('category', '==', catId);
+      arrayFiltered.get().then((response) => {
+        const data = response.docs.map((doc) => ({...doc.data(), id: doc.id}));
+        console.log(data);
+  
+        setProducts(data);
+      })
+    } else {
+      productsCollection.get().then((response) => {
+        const data = response.docs.map((doc) => ({...doc.data(), id: doc.id}));
+        console.log(data);
+
+        setProducts(data);
+      })  
+    }
+
   }, [catId]);
 
   return (

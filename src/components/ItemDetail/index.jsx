@@ -5,7 +5,7 @@ import { CartContext } from "../../context/CartContext";
 import { ItemCount } from "../ItemCount";
 import "./styles.scss";
 
-export const ItemDetail = ({ id, title, price, image, stock }) => {
+export const ItemDetail = ({ id, title, price, image, stock, description }) => {
   const [ quantity, setQuantity ] = useState(1);  
 
   const { addToCart, isInCart } = useContext(CartContext);
@@ -43,10 +43,9 @@ export const ItemDetail = ({ id, title, price, image, stock }) => {
       </div>
       <div className="product-text">
         <h2 className="item-title">{title}</h2>
-        <p className="item-price">${price}</p>
+        <p className="item-price">{price} USD</p>
         <p className="item-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo est
-          nemo veniam. Explicabo est nemo veniam.
+         {description}
         </p>
 
         <Flex align="center" justify="space-between">

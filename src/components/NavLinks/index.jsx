@@ -12,13 +12,13 @@ export const NavLinks = () => {
           <Link to="/shop">Shop</Link>
         </li>
         <li>
-          <Link to="/category/MLA109096">Jackets</Link>
+          <Link to="/category/tops">Tops</Link>
         </li>
         <li>
-          <Link to="/category/MLA109282">Pants</Link>
+          <Link to="/category/pants">Pants</Link>
         </li>
         <li>
-          <Link to="/category/MLA109042">Shirts</Link>
+          <Link to="/category/dresses">Dresses</Link>
         </li>
       </ul>
     </nav>

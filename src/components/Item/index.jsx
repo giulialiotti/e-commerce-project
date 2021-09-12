@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./styles.scss";
 
-export const Item = ({ id, title, price, image }) => {
+export const Item = ({ id, title, price, image, category }) => {
   return (
     <Link to={`/detail/${id}`}>
       <div className="item-container">
@@ -9,7 +9,7 @@ export const Item = ({ id, title, price, image }) => {
           <img src={image} alt={title} />
         </div>
         <div className="product-text">
-          <h3>Category</h3>
+          <h3>{category}</h3>
           <h2>{title}</h2>
           <p className="price">${price}</p>
         </div>
