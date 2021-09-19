@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Button } from '@chakra-ui/button';
 import { HiOutlineTrash } from "react-icons/hi";
+import { Link } from 'react-router-dom';
 
 export const CartContainer = () => {
 
@@ -25,6 +26,12 @@ export const CartContainer = () => {
             <Button bg="var(--red)" color="white" size="sm" onClick={emptyCart}>
                 Empty cart
             </Button>
+            
+            <Link to="/checkout">
+                <Button bg="var(--cream)" color="white" size="sm">
+                    Checkout
+                </Button>            
+            </Link>
         </div>
     )
 }
