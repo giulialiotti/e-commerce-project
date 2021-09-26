@@ -1,37 +1,20 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../../context/CartContext';
-import { Button } from '@chakra-ui/button';
-import { HiOutlineTrash } from "react-icons/hi";
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+import "./styles.scss";
+import { Box } from "@chakra-ui/layout";
+import { CartWithItems } from "./CartWithItems";
+import { EmptyBasket } from "./EmptyBasket";
 
 export const CartContainer = () => {
+  const { cart } =
+    useContext(CartContext);
 
-    const { cart, removeFromCart, emptyCart } = useContext(CartContext);
-    
-    return (
-        <div>
-            <h2>Shopping Bag</h2>
-
-            {cart.map((product) => {
-                return (
-                    <div key={product.id}>
-                        <h3>{product.name}</h3>
-                        <p>Quantity: ${product.quantity}</p>
-                        <p>Price: ${product.price * product.quantity}</p>
-                        <HiOutlineTrash onClick={() => removeFromCart(product.id)}/>
-                    </div>
-                )
-            })}
-
-            <Button bg="var(--red)" color="white" size="sm" onClick={emptyCart}>
-                Empty cart
-            </Button>
-            
-            <Link to="/checkout">
-                <Button bg="var(--cream)" color="white" size="sm">
-                    Checkout
-                </Button>            
-            </Link>
-        </div>
-    )
-}
+  return (
+    <Box as="section" p={["0 1.5rem 5rem", "0 4rem 5rem", "0 8rem 5rem"]}>
+        {!cart.length 
+            ? <EmptyBasket />
+            :  <CartWithItems />   
+        }
+    </Box>
+  );
+};
