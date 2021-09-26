@@ -27,6 +27,10 @@ header {
     width: 20px;
     height: 20px;
   }
+
+  .shop-all-link {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -54,6 +58,10 @@ header {
       align-items: center;
       justify-content: flex-end;
       width: 40%;
+    }
+
+    .shop-all-link {
+      display: block;
     }
   }
 }
