@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react';
+import { Redirect } from 'react-router';
 import { CartContext } from '../../context/CartContext';
 import { generateOrder } from '../../firebase/generateOrder';
 import { Button } from '@chakra-ui/button';
@@ -8,8 +9,9 @@ import {
     FormLabel,
     Input,
     InputGroup,
-    InputLeftAddon
-  } from "@chakra-ui/react"
+    InputLeftAddon,
+  } from "@chakra-ui/react";
+import Swal from 'sweetalert2';
 
 export const Checkout = () => {
     const [formValues, setFormValues] = useState({
@@ -19,7 +21,7 @@ export const Checkout = () => {
         phone: 0,
     });
 
-    const { cart, totalCartPrice } = useContext(CartContext);
+    const { cart, totalCartPrice, emptyCart } = useContext(CartContext);
 
     const handleInputChange = (e) => {
         setFormValues({
@@ -33,19 +35,40 @@ export const Checkout = () => {
         console.log(cart);
         console.log(formValues);
         // Add: generate order only if form values are correct
-        generateOrder(formValues, cart, totalCartPrice());
+        if (formValues.name !== '' && formValues.lastname !== '' && formValues.email !== '' ) {
+            generateOrder(formValues, cart, totalCartPrice())
+                .then(res => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Your purchase was successful!',
+                        text: `Save your purchase ID: ${res}`,
+                        confirmButtonText: 'Go back',
+                        iconColor: 'var(--cream)',
+                        confirmButtonColor: 'var(--cream)'
+                    });
+
+                    emptyCart();
+                })
+                .catch(err => console.log(err)) 
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Invalid fields!',
+                iconColor: 'var(--red)',
+                confirmButtonColor: 'var(--red)'
+              })
+        }
     };
 
-    console.log('cart', cart)
-
     return (
-        <Box p='5% 10%'>
-            <h1>Checkout</h1>
+        <Box p={["0 1.5rem 5rem", "0 4rem 5rem", "0 8rem 5rem"]} as='section'>
+            <h2 className="cart-container-title">ENTER YOUR SHIPPING DETAILS</h2>
             {/* Add cart info */}
             {!cart.length 
-                ? <h3>There's no items on the cart</h3>
+                ? <Redirect to="/"/>
                 : 
-                <FormControl width={['100%', '40%']} isRequired>
+                <FormControl width={['100%', '100%', '60%']} margin='0 auto' isRequired>
                     <FormLabel mt='5'>First name</FormLabel>
                     <Input placeholder="First name" type='text' name='name' value={formValues.name} onChange={handleInputChange} />                    
                     
@@ -61,7 +84,11 @@ export const Checkout = () => {
                         <Input type="tel" placeholder="Your phone number" name='phone' value={formValues.phone} onChange={handleInputChange} />
                     </InputGroup>
 
-                    <Button type="submit" bg="var(--cream)" color="white" size="md" mt='5' onClick={handleSubmit}>
+                    <Box width='100%' mt='10'>
+                        <h3 className="cart-container-product-title text-right">TOTAL: ${totalCartPrice()}</h3>
+                    </Box>
+
+                    <Button type="submit" bg="var(--cream)" color="white" size="md" mt='5' position='absolute' right='0' onClick={handleSubmit}>
                         Generate order
                     </Button>                
                 </FormControl>
