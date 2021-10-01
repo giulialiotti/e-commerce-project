@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import "./styles.scss";
 import { Box } from "@chakra-ui/layout";
 import { CartWithItems } from "./CartWithItems";
 import { EmptyBasket } from "./EmptyBasket";

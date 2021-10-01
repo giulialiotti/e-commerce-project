@@ -15,9 +15,9 @@ export const HamburgerMenu = () => {
   const btnRef = React.useRef();
 
   return (
-    <>
+    <Box display={["block", "block", "none", "none"]}>
       <Box ref={btnRef} colorScheme="teal" onClick={onOpen}>
-        <HiOutlineMenuAlt1 className="hamburger-menu" />
+        <HiOutlineMenuAlt1 />
       </Box>
       <Drawer
         isOpen={isOpen}
@@ -41,6 +41,6 @@ export const HamburgerMenu = () => {
           </Box>
         </DrawerContent>
       </Drawer>
-    </>
+    </Box>
   );
 };
