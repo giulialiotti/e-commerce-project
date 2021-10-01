@@ -16,7 +16,7 @@ export const HamburgerMenu = () => {
 
   return (
     <Box display={["block", "block", "none", "none"]}>
-      <Box ref={btnRef} colorScheme="teal" onClick={onOpen}>
+      <Box ref={btnRef} onClick={onOpen}>
         <HiOutlineMenuAlt1 />
       </Box>
       <Drawer
