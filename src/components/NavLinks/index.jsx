@@ -1,5 +1,5 @@
 import { Box, Flex } from "@chakra-ui/layout";
-import { Link } from "@chakra-ui/layout";
+import { Link } from "react-router-dom";
 
 export const NavLinks = () => {
   return (
