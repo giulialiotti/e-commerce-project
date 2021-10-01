@@ -1,7 +1,5 @@
-// 1. Import `extendTheme`
 import { extendTheme } from "@chakra-ui/react";
 
-// 2. Define the new text styles
 export const theme = extendTheme({
   fonts: {
     primary: '"DM Sans", sans-serif',
