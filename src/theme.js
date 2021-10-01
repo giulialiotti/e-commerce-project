@@ -53,10 +53,6 @@ export const theme = extendTheme({
       fontSize: "0.65rem",
       fontWeight: 500,
     },
-    "body-500": {
-      fontFamily: "primary",
-      fontSize: "1rem",
-    }
   },
   colors: {
     darkRed: "#c22929",
