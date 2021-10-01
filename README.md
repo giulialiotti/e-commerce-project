@@ -1,6 +1,6 @@
 # Fresh Ecommerce
 
-Ecommerce for clothing store
+Ecommerce for clothing store\
 This is a project for the React Js course from CoderHouse
 
 ## Objectives
