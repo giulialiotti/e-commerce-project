@@ -9,13 +9,13 @@ To be able to select an item from the list, add it to the cart, remove it if nec
 
 ## Modules
 
-Chakra UI
-Firebase
-SweetAlert2
+- Chakra UI
+- Firebase
+- SweetAlert2
 
 ## Installation
 
-Clone project
+Clone project into new folder
 
 ```
 git clone https://github.com/giulialiotti/e-commerce-project.git folder-name
