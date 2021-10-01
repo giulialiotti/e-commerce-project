@@ -16,7 +16,6 @@
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "sass": "^1.34.1",
     "sweetalert2": "^11.1.7",
     "web-vitals": "^1.1.2"
   },
